@@ -1,20 +1,19 @@
-//Déclaration des class que l'on va utilisé
-class Patient {
-    constructor(nom, maladie, argent, poche, etatSante, ) {
-        this.nom = nom,
-            this.maladie = maladie;
+class Patients {
+    constructor(nom, maladie, argent, poche, etat) {
+        this.nom = nom;
+        this.maladie = maladie;
         this.argent = argent;
         this.poche = poche;
-        this.etatSante = etatSante;
-        this.goTo = (start, end) => {
-            end.personne.push(this);
-            start.personne.splice(start.personne.indexOf(this));
-            console.log(`${this.nom} va de ${start.nom} vers ${end.nom}`);
+        this.etat = etat;
+        this.goTo = (depart, destination) => {
+            destination.personnes.push(this);
+            depart.personnes.splice(depart.personnes.indexOf(this));
+            console.log(`${this.nom} va de ${depart.nom} vers ${destination.nom}`);
         }
         this.takeCare = (docteur) => {
             this.argent -= 50;
             docteur.argent += 50;
-            console.log(`${this.nom} paye 50$ au ${docteur.nom}`);
+            console.log(`${this.nom} paye 50bal au ${docteur.nom}`);
         }
         this.paye = (personnePayee) => {
             this.argent -= this.traitement.prix;
@@ -24,9 +23,9 @@ class Patient {
 }
 
 class Lieu {
-    constructor(nom, personne) {
+    constructor(nom, personnes) {
         this.nom = nom;
-        this.personne = personne;
+        this.personnes = personnes;
     }
 }
 
@@ -38,7 +37,7 @@ class Traitement {
 }
 
 export {
-    Patient,
+    Patients,
     Lieu,
     Traitement
 };

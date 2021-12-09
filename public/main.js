@@ -1,14 +1,18 @@
-import {docteur,pharmacie,patients} from "./module/instances.js";
+import {
+    docteur,
+    pharmacie,
+    patients
+} from "./module/instances.js";
 
-patients.forEach(e => {
-    console.log(`Story of ${e.nom}`);
+patients.forEach(element => {
+    console.log(`Et voici l'histoire de ${element.nom} !!!`);
     console.log(` `);
-    
-    docteur.patientIn(e);
-    docteur.diagnostique(e);
-    e.takeCare(docteur);
-    docteur.patientOut(e);
-    e.goTo(docteur.salleDAttente,pharmacie)
-    pharmacie.vendreTraitement(e);
+
+    docteur.patientIn(element);
+    docteur.diagnostique(element);
+    element.takeCare(docteur);
+    docteur.patientOut(element);
+    element.goTo(docteur.salleDAttente, pharmacie)
+    pharmacie.vendreTraitement(element);
     console.log(` `);
 });
