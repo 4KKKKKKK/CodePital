@@ -13,7 +13,7 @@ patients.forEach(e => {
     //le patient entre dans le cabinet
     docteur.patientIn(e);
 
-    // chat.miauler(e);
+    chat.miauler(e);
 
     //le patient est diagnostiqué
     docteur.diagnostique(e);
@@ -29,6 +29,7 @@ patients.forEach(e => {
 
     //eL patient sort du cabinet pour aller vers la pharma
     e.goTo(docteur.salleDAttente, pharmacie)
+    
     // console.log(`${e.nom} a donné la prescription qui se trouvait dans sa poche`);
     console.log(e.poche);
         
